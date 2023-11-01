@@ -1,16 +1,24 @@
 #pragma once
 
-#include <stdint.h>
-#include "Data.hpp"
+#include <string>
+#include <iostream>
+#include <stdint.h> // otherwise uintptr_t won't compile with c++98 standard
 
-class	Serializer {
-	private:
-		Serializer();
-		Serializer(Serializer &copy);
+typedef struct Data
+{
+	std::string	name;
+	size_t		age;
+	Data		*next;
+}				Data;
+
+class Serializer
+{
 	public:
+		Serializer();
+		Serializer(const Serializer &src);
 		~Serializer();
-		Serializer & operator=(const Serializer &obj);
+		Serializer &operator=(const Serializer &src);
 
-		static uintptr_t	serialize(Data* ptr);
-		static Data*		deserialize(uintptr_t raw);
+		uintptr_t serialize(Data *ptr);
+		Data *unserialize(uintptr_t raw);
 };

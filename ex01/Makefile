@@ -2,11 +2,9 @@ NAME = serialize
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 FILES = Serializer \
-		Data
 		main
 
-INCLS = Serializer.hpp \
-		Data.hpp
+INCLS = Serializer.hpp
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
