@@ -23,7 +23,7 @@ public:
 	static void printDouble(double d);
 	static void convert(const std::string &val);
 
-	class InvalidInputException : public std::exception
+	class InvalidInput : public std::exception
 	{
 		public:
 			virtual const char *what() const throw();

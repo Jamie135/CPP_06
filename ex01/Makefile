@@ -1,10 +1,12 @@
-NAME = convert
+NAME = serialize
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-FILES = ScalarConverter \
+FILES = Serializer \
+		Data
 		main
 
-INCLS = ScalarConverter.hpp 
+INCLS = Serializer.hpp \
+		Data.hpp
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
