@@ -2,9 +2,14 @@ NAME = identify
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 FILES = Base \
+		Identifier \
 		main
 
-INCLS = Base.hpp
+INCLS = Base.hpp \
+		A.hpp \
+		B.hpp \
+		C.hpp \
+		Identifier.hpp
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
