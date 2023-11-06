@@ -14,6 +14,7 @@ int	main()
 		delete ptr;
 		usleep(1000);
 	}
+	std::cout << std::endl;
 	std::cout << "Reference test" << std::endl;
 	for (int i = 0; i < 5; i++)
 	{

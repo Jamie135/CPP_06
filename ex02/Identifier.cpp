@@ -2,17 +2,28 @@
 
 Base*	generate()
 {
-	std::srand(std::time(0));
-	int choice = std::rand() % 3;
-	switch (choice) {
-		case 0:
-			return (new A());
-		case 1:
-			return (new B());
-		case 2:
-			return (new C());
+	int		gen = rand() % 3;
+	
+	switch (gen)
+	{
+		case 0 :
+			std::cout << "A has been generated" << std::endl;
+			return new A();
+			break;
+		
+		case 1 :
+			std::cout << "B has been generated" << std::endl;
+			return new B();
+			break;
+		
+		case 2 :
+			std::cout << "C has been generated" << std::endl;
+			return new C();
+			break;
+		
 		default:
-			return (0);
+			return NULL;
+			break;
 	}
 }
 
