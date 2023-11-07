@@ -16,7 +16,7 @@ private:
 public:
 	ScalarConverter &operator=(const ScalarConverter &obj);
 	~ScalarConverter();
-	static void printInt(int i);
+	static void printInt(int i, long double ld);
 	static void printChar(char c);
 	static void printSpecial(const std::string &val);
 	static void printFloat(float f);

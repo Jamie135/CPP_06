@@ -92,7 +92,7 @@ bool	isInteger(const std::string &val)
 	return (true);
 }
 
-void	ScalarConverter::printInt(int i)
+void	ScalarConverter::printInt(int i, long double ld)
 {
 	char c = static_cast<char>(i);
 	float f = static_cast<float>(i);
@@ -101,7 +101,10 @@ void	ScalarConverter::printInt(int i)
 	std::cout << "char: " << (i > 127 || i < 0 ? "impossible"
 		: (std::isprint(i) ? "'" + std::string(1, c) + "'" : "Non displayable"))
 		<< std::endl;
-	std::cout << "int: " << i << std::endl;
+	if (ld <= std::numeric_limits<int>::max() && ld >= std::numeric_limits<int>::min())
+		std::cout << "int: " << i << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 	std::cout << "float: " << f << (f == std::floor(f) ? ".0f" : "f") << std::endl;
 	std::cout << "double: " << d << (d == std::floor(d) ? ".0" : "") << std::endl;
 }
@@ -183,7 +186,8 @@ void	ScalarConverter::convert(const std::string &val)
 		if (std::isdigit(val[0]))
 		{
 			int d = std::atoi(val.c_str());
-			ScalarConverter::printInt(d);
+			long double ld = std::strtod(val.c_str(), NULL);
+			ScalarConverter::printInt(d, ld);
 		}
 		else
 		{
@@ -202,7 +206,8 @@ void	ScalarConverter::convert(const std::string &val)
 		else if (isInteger(val))
 		{
 			int d = std::atoi(val.c_str());
-			ScalarConverter::printInt(d);
+			long double ld = std::strtod(val.c_str(), NULL);
+			ScalarConverter::printInt(d, ld);
 		}
 		else if (isDouble(val))
 		{
