@@ -16,11 +16,11 @@ private:
 public:
 	ScalarConverter &operator=(const ScalarConverter &obj);
 	~ScalarConverter();
-	static void printInt(int i, long double ld);
+	static void printInt(long double ld);
 	static void printChar(char c);
 	static void printSpecial(const std::string &val);
-	static void printFloat(float f);
-	static void printDouble(double d);
+	static void printFloat(long double ld);
+	static void printDouble(long double ld);
 	static void convert(const std::string &val);
 
 	class InvalidInput : public std::exception
