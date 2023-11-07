@@ -2,7 +2,7 @@
 
 #include <string>
 #include <iostream>
-#include <stdint.h> // otherwise uintptr_t won't compile with c++98 standard
+#include <stdint.h>
 
 typedef struct Data
 {
@@ -12,12 +12,13 @@ typedef struct Data
 
 class Serializer
 {
-	public:
+	private:
 		Serializer();
-		Serializer(const Serializer &src);
+		Serializer(const Serializer &copy);
+	public:
 		~Serializer();
 		Serializer &operator=(const Serializer &src);
 
-		uintptr_t serialize(Data *ptr);
-		Data *unserialize(uintptr_t raw);
+		static uintptr_t serialize(Data *ptr);
+		static Data *deserialize(uintptr_t raw);
 };
