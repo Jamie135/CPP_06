@@ -106,14 +106,8 @@ void	ScalarConverter::printInt(long double ld)
 		std::cout << "int: " << i << std::endl;
 	else
 		std::cout << "int: impossible" << std::endl;
-	if (ld >= std::numeric_limits<float>::min() && ld <= std::numeric_limits<float>::max())
-		std::cout << "float: " << f << (f == std::floor(f) ? ".0f" : "f") << std::endl;
-	else
-		std::cout << "float: " << "impossible" << std::endl;
-	if (ld >= std::numeric_limits<double>::min() && ld <= std::numeric_limits<double>::max())
-		std::cout << "double: " << d << (d == std::floor(d) ? ".0" : "") << std::endl;
-	else
-		std::cout << "double: " << "impossible" << std::endl;
+	std::cout << "float: " << f << (f == std::floor(f) ? ".0f" : "f") << std::endl;
+	std::cout << "double: " << d << (d == std::floor(d) ? ".0" : "") << std::endl;
 }
 
 void	ScalarConverter::printChar(char c)
